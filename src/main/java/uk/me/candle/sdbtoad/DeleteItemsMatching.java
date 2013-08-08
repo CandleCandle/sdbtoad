@@ -16,7 +16,7 @@ import org.kohsuke.args4j.Argument;
 
 public class DeleteItemsMatching extends AbstractCliAction {
 
-    @Argument(metaVar = "domain", index = 0, hidden = false, usage = "The name of the domain to list")
+    @Argument(metaVar = "domain", index = 0, hidden = false, usage = "The name of the domain from which to delete items")
     private String domainToList;
 
     @Argument(metaVar = "regex", index = 1, hidden = false, usage = "Java regex to match items")
