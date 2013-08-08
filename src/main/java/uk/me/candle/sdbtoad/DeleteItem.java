@@ -7,10 +7,10 @@ import org.kohsuke.args4j.Argument;
 
 public class DeleteItem extends AbstractCliAction {
 
-    @Argument(index = 0, hidden = false, usage = "The name of the domain")
+    @Argument(index = 0, metaVar = "domain", hidden = false, usage = "The name of the domain from which to delete the item")
     private String domain;
 
-    @Argument(index = 1, hidden = false, usage = "the name of the item")
+    @Argument(index = 1, metaVar = "item", hidden = false, usage = "the name of the item to delete")
     private String item;
 
     public DeleteItem(ClientConfiguration clientConfiguration) {

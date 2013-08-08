@@ -11,7 +11,7 @@ import org.kohsuke.args4j.Argument;
 
 public class ListItems extends AbstractCliAction {
 
-    @Argument(index = 0, hidden = false, usage = "The name of the domain to list")
+    @Argument(index = 0, metaVar = "domain", hidden = false, usage = "The name of the domain to list")
     private String domainToList;
 
     public ListItems(ClientConfiguration clientConfiguration) {

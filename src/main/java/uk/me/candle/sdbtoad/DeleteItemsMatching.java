@@ -16,10 +16,10 @@ import org.kohsuke.args4j.Argument;
 
 public class DeleteItemsMatching extends AbstractCliAction {
 
-    @Argument(index = 0, hidden = false, usage = "The name of the domain to list")
+    @Argument(metaVar = "domain", index = 0, hidden = false, usage = "The name of the domain to list")
     private String domainToList;
 
-    @Argument(index = 1, hidden = false, usage = "Java regex to match items")
+    @Argument(metaVar = "regex", index = 1, hidden = false, usage = "Java regex to match items")
     private String matchRegex;
 
     public DeleteItemsMatching(ClientConfiguration clientConfiguration) {
