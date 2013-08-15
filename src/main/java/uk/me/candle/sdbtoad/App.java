@@ -1,6 +1,7 @@
 package uk.me.candle.sdbtoad;
 
 import com.amazonaws.ClientConfiguration;
+import com.google.common.collect.Lists;
 import java.util.Arrays;
 import org.kohsuke.args4j.CmdLineParser;
 import org.slf4j.Logger;
@@ -20,6 +21,8 @@ public class App {
         for (CliAction.Actions action : CliAction.Actions.values()) {
             if (action.getCommand().equals(command)) {
                 CliAction cmd = action.newInstance(conf);
+                LOG.debug("action: {}", cmd.getClass().getName());
+                LOG.debug("args: {}", Lists.newArrayList(Arrays.copyOfRange(args, 1, args.length)));
                 CmdLineParser parser = new CmdLineParser(cmd);
                 parser.parseArgument(Arrays.copyOfRange(args, 1, args.length));
 

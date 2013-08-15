@@ -45,11 +45,15 @@ public class DeleteItemsMatching extends AbstractCliAction {
         });
         int start = 0;
         int max = 25;
+        System.out.println("found " + items.size() + " items");
         do {
-            BatchDeleteAttributesRequest request = new BatchDeleteAttributesRequest(domain, items.subList(start, start+max-1));
+            int end = Math.min(start+max, items.size()-start);
+            System.out.println("start: " + start + " max: " + max + " items: " + items.size() + " end: " + end + " items-start: " + (items.size()-start) + " start+max: " + (start+max));
+            System.out.println("deleting from " + start + " to " + end);
+            BatchDeleteAttributesRequest request = new BatchDeleteAttributesRequest(domain, items.subList(start, end));
             client.batchDeleteAttributes(request);
-            start += max;
-        } while (start < items.size());
+            start = end;
+        } while (items.size()-start > 0);
 
     }
 }
